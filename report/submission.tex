@@ -62,6 +62,130 @@ For the full sample, compute yearly rolling zero-mean correlations of returns be
     \end{center}
     \item Briefly comment on the results
 
-    
+    Both windows show that the energy/hi-tech correlation is positive on average ($\sim 0.60 - 0.64$) and for most of the sample, but far from constant. The median exceeds the mean in both cases, indicating a left-skewed distribution. There are eposides of unusually low correlation that pull the mean down (ca. Y2K).
+
+    The most striking feature is the sharp drop in correlation starting in the mid 1990s, reaching a trough near zero (even briefly negative in the 1-year window) around year 2000. This coincides with the dot-com boom, where tech returns decoupled from the broader economy and energy in particular. A partial recovery follows, but the correlation never completely returns to the pre-1980 levels, and it drops again in the most recent years. 
+
+    The 5-year window produces a smoother series with a tighter interquartile range ($0.236 - 0.824 \text{ vs } 0.182 - 0.861 $). This is expected: a longer window averages out short-lived spikes and dips. The 1-year window is noisier and captures more transient regime changes, including the brief negative correlation episode. 
+
+    The declining and volatile correlation suggests that the diversification benefit of combining energy and tech has varied substantially over time. In periods of low correlation (late 1990s, early 2000s, and recently), a portfolio holding both sectors would have benefited most from diversification. Conversely, during the earlier decades when correlations hovered around 0.7-0.8, the two sectors moved largely together. 
 \end{enumerate}
+\newpage 
+\section{Different strategy portfolios}
+\begin{enumerate}
+    \item Cumulative log returns (1950 -- 2026)
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{2026-04-15-09-08-14.png}
+    \end{figure}
+    \begin{center}
+        \begin{tabular}{|l|c|}
+            \hline 
+            Annualized mean  & 0.125\\\hline
+            Annualized std   & 0.146\\\hline
+            Sharpe ratio     & 0.859\\\hline
+        \end{tabular}
+    \end{center}
+    \item Each industry weighted by the inverse of its full-sample std (weights annualized)
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{2026-04-15-09-15-20.png}
+    \end{figure}
+    \begin{center}
+        \begin{tabular}{|l|c|}
+            \hline 
+            Annualized mean &  0.124\\\hline
+            Annualized std &   0.141\\\hline
+            Sharpe ratio &     0.876\\\hline
+        \end{tabular}
+    \end{center}
+    \newpage 
+    \item Top 3 industries (Sharpe)
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{2026-04-15-10-05-15.png}
+    \end{figure}
+    \begin{center}
+        \begin{tabular}{|l|c|}
+            \hline 
+            Annualized mean &  0.138\\\hline
+            Annualized std &   0.150\\\hline
+            Sharpe ratio &     0.917\\\hline
+        \end{tabular}
+    \end{center}
+    \item Summary and comments 
+    \begin{center}
+        \begin{tabular}{|l|c|c|c|}
+            \hline 
+            \textbf{Portfolio} & \textbf{Ann.\ Mean} & \textbf{Ann.\ Std} & \textbf{Sharpe} \\\hline
+            Equal-Weighted (1/10)       & 0.125 & 0.146 & 0.859 \\\hline
+            Inverse-Volatility          & 0.124 & 0.141 & 0.876 \\\hline
+            Top-3 Sharpe                & 0.138 & 0.150 & 0.917 \\\hline    
+        \end{tabular}
+    \end{center}
+    The equal-weighted and inverse-volatility portfolios are very similar. The latter tilts towards lower-volatility sectors, which slightly reduces both the mean return and the standard deviation, resulting in a modestly higher Sharpe ratio (0.876 vs. 0.859). The top-3 Sharpe strategy achieves the highest Sharpe ratio (0.917) by concentrating in the three sectors with the best recent risk-adjusted performance, though at the cost of higher volatility from holding only three sectors. 
+
+    We select industries based on Sharpe ratio rather than raw returns because the Sharpe ratio accounts for risk. Selecting on past returns alone would tend to pick the most volatile sectors; those with the largest upside in the lookback window often also carry the largest downside risk. By ranking on Sharpe, we select sectors that delivered high returns relative to their risk, which is a better predictor of future risk-adjusted performance and leads to a more robust portfolio. 
+\end{enumerate}
+\newpage 
+\section{Modified momentum strategy}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{2026-04-15-10-39-18.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{2026-04-15-10-38-41.png}
+\end{figure}
+\begin{center}
+    \begin{tabular}{|l|c|}
+        \hline 
+        Annualized mean &  0.254\\\hline 
+        Annualized std &   0.216\\\hline 
+        Sharpe ratio &     1.173\\\hline 
+        Average sum of weights & 1.909\\\hline 
+    \end{tabular}
+\end{center}
+Volatility targeting dramatically improves performance relative to the constant-allocation top-3 Sharpe portfolio. The annualized mean nearly doubles (0.254 vs. 0.138) while the annualized std rises only modestly (0.216 vs. 0.150), pushing the Sharpe ratio from 0.917 to 1.173. 
+
+The key mechanism is visible in the sum-of-weights plot: the average sum is about 1.91, meaning the portfolio is on average leveraged to nearly 2$\times$ capital. In calm, low-volatility regimes (especially pre-1970), the strategy levers up aggressively (weights summing to 4--6$\times $), harvesting high returns when risk is low. Conversely, during volatile episodes (e.g., 2000s, 2008, 2021) it de-levers below $1\times $, protecting capital when risk is elevated. 
+
+This asymmetric behaviour (taking more risk when the market rewards it and less risk when it does not) is what generates the higher Sharpe ratio. It also explains why the cumulative log returns ($\sim 17.5 $) far exceeds the constant-allocation version ($\sim 8.5 $): vol-targeting exploits the well-documented empirical regularity that volatility is persistent and mean-reverting, so recent realized volatility is a useful signal for how much risk to take today. 
+
+A caveat is that the strategy implicitly assumes unlimited borrowing and lending at zero cost. In practice, leverage costs and margin constraints would erode part of the improvement, though the qualitative conclusion is robust. 
+\section{Modified momentum strategy (long-term)}
+\textbf{Top-3 winners}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{2026-04-15-11-02-54.png}
+\end{figure}
+\begin{center}
+    \begin{tabular}{|l|c|}
+        \hline 
+        Annualized mean &  0.117\\\hline
+        Annualized std &   0.167\\\hline
+        Sharpe ratio &     0.702\\\hline
+    \end{tabular}
+\end{center}
+
+\textbf{Top-3 losers}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{2026-04-15-11-03-03.png}
+\end{figure}
+\begin{center}
+    \begin{tabular}{|l|c|}
+        \hline 
+        Annualized mean &  0.126\\\hline
+        Annualized std &   0.154\\\hline
+        Sharpe ratio &     0.816\\\hline
+    \end{tabular}
+\end{center}
+\newpage 
+The results confirm the well-documented distinction between short-run momentum and long-run mean reversion in asset returns. The contrarian (losers) portfolio dominates the momentum (winners) portfolio on every dimension: higher mean (12.6\% vs. 11.73\%), lower volatility (15.44\% vs. 16.70\%), and consequently a substantially higher Sharpe ratio (0.816 vs. 0.702). 
+
+Notably, both 10-year strategies produce lower Sharpe ratios than the 12-month Sharpe-based strategy from Q2.3 (0.917), underscoring that short-horizon momentum and long-horizon reversal are distinct phenomena, and that the short-horizon effect is the stronger signal for portfolio construction. 
+
+The contrarian portfolio also exhibits a visibly smoother cumulative return path, reflecting both its lower volatility and the diversification benefit of holding sectors that tend to behave differently from recent market favorites. 
+
 \end{document}
