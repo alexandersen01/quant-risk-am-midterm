@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1776244951.00767 "/Users/jakobsverrealexandersen/Documents/quant-risk-am-midterm/report/submission.tex" "submission.pdf" "submission" 1776244952.13648 0
-  "/Users/jakobsverrealexandersen/Documents/quant-risk-am-midterm/report/submission.tex" 1776244949.07266 10284 b920b13be4b40aad266425a89438486f ""
+["pdflatex"] 1776335090.98531 "/Users/jakobsverrealexandersen/Documents/quant-risk-am-midterm/report/submission.tex" "submission.pdf" "submission" 1776335092.03803 0
+  "/Users/jakobsverrealexandersen/Documents/quant-risk-am-midterm/report/submission.tex" 1776335090.41066 10266 33f838f605b0811f290d22bf38872f3d ""
   "/Users/jakobsverrealexandersen/Library/Application" 1765462360.28431 58 5be58d25415c6b0826fe498532e200cf ""
   "/Users/jakobsverrealexandersen/Library/Application Support/MiKTeX/texmfs/data/fonts/map/pdftex/pdftex.map" 1772096847.91448 85026 eb5c82127a8118f6880fc77f906c4b6b ""
   "/Users/jakobsverrealexandersen/Library/Application Support/MiKTeX/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1744540792.33739 12053120 514daef0bf02ba4323c4635a48e46f13 ""
@@ -113,9 +113,9 @@
   "2026-04-15-10-39-18.png" 1776242358.50862 52469 aa812722acf90347392c1c31bf113714 ""
   "2026-04-15-11-02-54.png" 1776243774.90213 52138 a2fbf2b923ddb4c162b6ea3712e0e41b ""
   "2026-04-15-11-03-03.png" 1776243783.63492 50246 902c4d82d304c67b369d5d7ff8b75ecf ""
-  "submission.aux" 1776244952.00922 684 038787ee96f6fa8823b8107ad373f06c "pdflatex"
-  "submission.out" 1776244952.01027 881 7ea9b1c8eebad4d6c2921708c557376a "pdflatex"
-  "submission.tex" 1776244949.07266 10284 b920b13be4b40aad266425a89438486f ""
+  "submission.aux" 1776335091.89733 684 038787ee96f6fa8823b8107ad373f06c "pdflatex"
+  "submission.out" 1776335091.89903 881 7ea9b1c8eebad4d6c2921708c557376a "pdflatex"
+  "submission.tex" 1776335090.41066 10266 33f838f605b0811f290d22bf38872f3d ""
   (generated)
   "submission.aux"
   "submission.log"
